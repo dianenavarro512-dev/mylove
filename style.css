@@ -1,0 +1,476 @@
+
+:root {
+  --cream: #f8f3eb;
+  --paper: #fffdf9;
+  --beige: #e9ddce;
+  --brown: #715746;
+  --dark: #49382f;
+  --muted: #947e6e;
+  --pink: #d8a6a0;
+  --line: #e9ded2;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 30px;
+}
+
+body {
+  background: var(--cream);
+  color: var(--dark);
+  font-family: "DM Sans", sans-serif;
+  line-height: 1.7;
+}
+
+h1, h2, h3, .brand {
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  margin-bottom: 12px;
+}
+
+h2 span, .brand span, h1 span {
+  color: var(--pink);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+/* GENERAL */
+.hidden {
+  display: none !important;
+}
+
+.eyebrow {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  margin-bottom: 12px;
+}
+
+.section-intro {
+  color: var(--muted);
+  max-width: 570px;
+  margin-bottom: 28px;
+}
+
+/* SURPRISE POP-UP */
+.welcome-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  overflow-y: auto;
+  background: rgba(67, 49, 39, 0.65);
+  backdrop-filter: blur(7px);
+}
+
+.welcome-card {
+  width: min(100%, 520px);
+  margin: auto;
+  padding: 32px;
+  text-align: center;
+  background: var(--paper);
+  border: 1px solid white;
+  border-radius: 8px;
+  box-shadow: 0 20px 70px rgba(42, 29, 20, 0.22);
+  animation: appear 0.7s ease;
+}
+
+.welcome-card h1 {
+  font-size: clamp(2rem, 6vw, 3rem);
+  margin-bottom: 12px;
+}
+
+.welcome-text {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 22px;
+}
+
+.welcome-collage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+  margin-bottom: 18px;
+}
+
+.welcome-collage img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+  background: var(--beige);
+}
+
+.welcome-collage img:first-child {
+  transform: rotate(-2deg);
+}
+
+.welcome-collage img:last-child {
+  transform: rotate(2deg);
+}
+
+.little-note {
+  color: var(--muted);
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  margin-bottom: 18px;
+}
+
+.main-button {
+  border: 0;
+  border-radius: 30px;
+  padding: 13px 25px;
+  background: var(--brown);
+  color: white;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.main-button:hover {
+  background: var(--dark);
+  transform: translateY(-2px);
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MAIN LAYOUT */
+.website {
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 245px;
+  padding: 38px 25px;
+  background: #efe5d9;
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.brand {
+  font-size: 2.4rem;
+  line-height: 1.3;
+}
+
+.side-caption {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 42px;
+}
+
+.sidebar nav {
+  display: grid;
+  gap: 9px;
+}
+
+.sidebar nav a {
+  padding: 11px 12px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+.sidebar nav a:hover {
+  background: rgba(255, 255, 255, 0.65);
+  color: var(--brown);
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  color: var(--muted);
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.main-content {
+  margin-left: 245px;
+  padding: 55px clamp(22px, 6vw, 85px);
+  max-width: 1500px;
+}
+
+.hero-section,
+.content-section {
+  max-width: 1050px;
+  margin: 0 auto 95px;
+}
+
+.hero-section > h1 {
+  margin-bottom: 16px;
+}
+
+.hero-section h1 em {
+  color: var(--brown);
+}
+
+.featured-photo {
+  background: white;
+  padding: 12px;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 35px rgba(76, 54, 40, 0.07);
+}
+
+.featured-photo img {
+  width: 100%;
+  max-height: 570px;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: var(--beige);
+}
+
+.photo-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 5px 3px;
+  color: var(--muted);
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+}
+
+.quote-card {
+  margin-top: 28px;
+  padding: 28px;
+  text-align: center;
+  background: #efe5d9;
+  border-radius: 5px;
+}
+
+.quote-heart {
+  font-size: 1.7rem;
+  color: var(--pink);
+}
+
+.quote-card p {
+  font-family: "Playfair Display", serif;
+  font-size: 1.35rem;
+  margin: 8px 0;
+}
+
+.quote-signature {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+/* VIDEOS */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.video-card {
+  padding: 12px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+
+.video-card video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  background: #e6ddd3;
+}
+
+.video-card h3 {
+  margin: 12px 0 3px;
+  font-size: 1.2rem;
+}
+
+.video-card p {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* MEMORIES GALLERY */
+.memory-grid,
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.memory-card {
+  background: var(--paper);
+  padding: 10px;
+  border: 1px solid var(--line);
+  transition: transform 0.25s;
+}
+
+.memory-card:hover {
+  transform: translateY(-4px);
+}
+
+.memory-card img,
+.gallery img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  background: var(--beige);
+}
+
+.memory-card figcaption {
+  padding: 12px 5px 5px;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* LETTER */
+.letter-paper {
+  padding: clamp(22px, 5vw, 45px);
+  background: #fffaf2;
+  border: 1px solid #e7d8c7;
+  box-shadow: 0 8px 25px rgba(76, 54, 40, 0.05);
+}
+
+.letter-paper p {
+  margin-bottom: 18px;
+}
+
+.letter-ending {
+  color: var(--brown);
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+}
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 25px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+footer p {
+  font-size: 0.75rem;
+}
+
+/* CHESTER'S PHOTO PAGE */
+.back-link {
+  display: inline-block;
+  color: var(--brown);
+  margin-bottom: 28px;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.gallery img {
+  height: 340px;
+  transition: transform 0.25s;
+}
+
+.gallery img:hover {
+  transform: scale(1.02);
+}
+
+/* MOBILE */
+@media (max-width: 760px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    padding: 18px 20px;
+  }
+
+  .brand {
+    font-size: 2rem;
+  }
+
+  .side-caption {
+    margin-bottom: 12px;
+  }
+
+  .sidebar nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .sidebar nav a {
+    padding: 8px 10px;
+    background: rgba(255, 255, 255, 0.45);
+    font-size: 0.8rem;
+  }
+
+  .sidebar-footer {
+    display: none;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 35px 18px;
+  }
+
+  .hero-section,
+  .content-section {
+    margin-bottom: 65px;
+  }
+
+  .welcome-card {
+    padding: 23px 18px;
+  }
+
+  .welcome-collage img {
+    height: 120px;
+  }
+
+  .video-grid,
+  .memory-grid,
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .memory-card img,
+  .gallery img {
+    height: auto;
+    max-height: 450px;
+    aspect-ratio: 4 / 3;
+  }
+}
